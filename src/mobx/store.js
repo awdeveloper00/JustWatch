@@ -1,25 +1,25 @@
 import {types} from 'mobx-state-tree';
-import {Platform} from 'react-native';
 
-// Define a couple models
 const Author = types.model({
   Title: types.string,
+  About: types.string,
 });
 
-// Define a store just like a model
 const RootStore = types.model({
   authors: types.array(Author),
 });
 
-// Instantiate a couple model instances
-const jamon = Author.create({
-  Title: 'Spiderman1',
+const movie = Author.create({
+  Title: 'Spiderman',
+  About:
+    'After Peter Parker is bitten by a genetically altered spider, he gains newfound, spider-like powers and ventures out to save the city from the machinations of a mysterious reptilian foe.',
 });
-const jamon1 = Author.create({
-  Title: 'Spiderman2',
+const movie2 = Author.create({
+  Title: 'The Great Hack',
+  About:
+    'The Cambridge Analytica scandal is examined through the roles of several affected persons.',
 });
 
-// Now instantiate the store!
 export const rootStore = RootStore.create({
-  authors: [jamon, jamon1],
+  authors: [movie, movie2],
 });
